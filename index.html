@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>뷰티 마스터 메이크업 샵 - 1분 타이머 버전</title>
+  <title>뷰티 마스터 메이크업 샵 - 프리미엄 에디션</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,7 +13,7 @@
 
     body {
       margin: 0;
-      background: linear-gradient(135deg, #ffe6eb 0%, #e8dff5 50%, #def3ff 100%);
+      background: linear-gradient(135deg, #ffdeeb 0%, #e8dff5 50%, #d6e2ff 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -21,10 +21,10 @@
       padding: 15px;
     }
 
-    /* 상단 헤더 & 상점 버튼 */
+    /* 상단 헤더 */
     header {
       width: 100%;
-      max-width: 950px;
+      max-width: 980px;
       background: rgba(255, 255, 255, 0.95);
       padding: 12px 20px;
       border-radius: 20px;
@@ -32,7 +32,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
       gap: 10px;
     }
@@ -40,7 +40,7 @@
     .shop-title {
       font-size: 22px;
       font-weight: bold;
-      color: #ff477e;
+      color: #ff3366;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -78,11 +78,11 @@
     /* 타이머 진행 바 */
     .timer-container {
       width: 100%;
-      max-width: 950px;
+      max-width: 980px;
       background: #e0e0e0;
       border-radius: 10px;
-      height: 14px;
-      margin-bottom: 15px;
+      height: 16px;
+      margin-bottom: 12px;
       overflow: hidden;
       position: relative;
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
@@ -100,25 +100,25 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: bold;
       color: #333;
     }
 
-    /* 메인 레이아웃 */
+    /* 메인 게임 영역 */
     .game-container {
       width: 100%;
-      max-width: 950px;
+      max-width: 980px;
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
+      grid-template-columns: 1fr 1.2fr;
       gap: 15px;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 850px) {
       .game-container { grid-template-columns: 1fr; }
     }
 
-    /* 왼쪽 뷰 영역 */
+    /* 왼쪽 손님 뷰 영역 */
     .view-section {
       background: white;
       border-radius: 24px;
@@ -129,6 +129,16 @@
       align-items: center;
     }
 
+    .customer-info-tag {
+      background: #ffecf2;
+      color: #ff3366;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
     .dialog-box {
       width: 100%;
       background: #fff8f9;
@@ -136,7 +146,10 @@
       border-radius: 16px;
       padding: 12px 15px;
       margin-bottom: 10px;
-      min-height: 85px;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .customer-req {
@@ -148,12 +161,12 @@
     }
 
     .face-svg {
-      width: 270px;
-      height: 310px;
-      filter: drop-shadow(0 5px 10px rgba(0,0,0,0.08));
+      width: 290px;
+      height: 330px;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
     }
 
-    /* 오른쪽 툴 영역 */
+    /* 오른쪽 메이크업 도구 영역 */
     .tool-section {
       background: white;
       border-radius: 24px;
@@ -162,7 +175,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      max-height: 520px;
+      max-height: 540px;
       overflow-y: auto;
     }
 
@@ -174,7 +187,10 @@
       font-weight: bold;
       color: #444;
       margin-bottom: 6px;
-      font-size: 14px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .color-palette {
@@ -184,8 +200,8 @@
     }
 
     .color-btn {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       border: 2px solid #eee;
       cursor: pointer;
@@ -197,10 +213,10 @@
       position: relative;
     }
 
-    .color-btn:hover { transform: scale(1.1); }
+    .color-btn:hover { transform: scale(1.15); }
     .color-btn.selected {
       border-color: #333;
-      transform: scale(1.1);
+      transform: scale(1.15);
       box-shadow: 0 0 8px rgba(0,0,0,0.3);
     }
 
@@ -210,14 +226,14 @@
     }
     .color-btn.locked::after {
       content: '🔒';
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .acc-btn {
       width: auto;
-      padding: 0 12px;
+      padding: 0 10px;
       border-radius: 12px;
-      height: 34px;
+      height: 32px;
       background: #f0f0f0;
       border: 1px solid #ddd;
       font-size: 12px;
@@ -225,15 +241,15 @@
       cursor: pointer;
     }
     .acc-btn.selected {
-      background: #ff477e;
+      background: #ff3366;
       color: white;
-      border-color: #ff477e;
+      border-color: #ff3366;
     }
 
-    /* 제출 버튼 */
+    /* 완성 제출 버튼 */
     .submit-btn {
       width: 100%;
-      background: linear-gradient(45deg, #ff477e, #ff758c);
+      background: linear-gradient(45deg, #ff3366, #ff758c);
       color: white;
       border: none;
       padding: 14px;
@@ -241,7 +257,7 @@
       font-weight: bold;
       border-radius: 16px;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+      box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
       margin-top: 10px;
     }
 
@@ -249,7 +265,7 @@
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0, 0, 0, 0.6);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -274,7 +290,7 @@
       box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
-    .result-score { font-size: 42px; font-weight: 900; color: #ff477e; margin: 5px 0; }
+    .result-score { font-size: 42px; font-weight: 900; color: #ff3366; margin: 5px 0; }
     .result-comment { font-size: 15px; color: #555; margin-bottom: 15px; }
     .result-reward { font-size: 20px; font-weight: bold; color: #2b9348; background: #e8f5e9; padding: 8px; border-radius: 12px; margin-bottom: 15px; }
 
@@ -291,7 +307,7 @@
     .shop-item-info { font-size: 13px; }
     .shop-item-title { font-weight: bold; font-size: 14px; color: #333; }
     .buy-btn {
-      background: #ff477e;
+      background: #ff3366;
       color: white;
       border: none;
       padding: 6px 12px;
@@ -316,7 +332,7 @@
 </head>
 <body>
 
-  <!-- 헤더 -->
+  <!-- 상단 헤더 -->
   <header>
     <div class="shop-title">💄 뷰티 마스터 메이크업 샵</div>
     <div class="stats">
@@ -326,116 +342,145 @@
     </div>
   </header>
 
-  <!-- 제한시간 진행바 -->
+  <!-- 1분 제한시간 타이머 바 -->
   <div class="timer-container">
     <div class="timer-bar" id="timer-bar"></div>
     <div class="timer-text" id="timer-text">⏱️ 남은 시간: 60초</div>
   </div>
 
-  <!-- 메인 게임 영역 -->
+  <!-- 메인 레이아웃 -->
   <div class="game-container">
     
-    <!-- 왼쪽: 아바타 캐릭터 -->
+    <!-- 왼쪽: 예쁜 아바타 캐릭터 -->
     <div class="view-section">
+      <div class="customer-info-tag" id="customer-name">손님 #1</div>
       <div class="dialog-box">
-        <p class="customer-req" id="request-text">손님이 요청사항을 준비 중입니다...</p>
+        <p class="customer-req" id="request-text">손님이 오기를 기다리는 중입니다...</p>
       </div>
 
-      <!-- 캐릭터 SVG -->
-      <svg class="face-svg" viewBox="0 0 300 350">
+      <!-- 정교하게 개선된 웹툰풍 SVG 캐릭터 그래픽 -->
+      <svg class="face-svg" viewBox="0 0 320 360">
         <defs>
-          <filter id="blur-filter"><feGaussianBlur stdDeviation="3"/></filter>
+          <filter id="blur-filter"><feGaussianBlur stdDeviation="4"/></filter>
+          <linearGradient id="skin-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fff5f0"/>
+            <stop offset="100%" stop-color="#ffebd9"/>
+          </linearGradient>
         </defs>
 
-        <!-- 목 & 얼굴 -->
-        <path d="M 120 240 L 120 290 L 180 290 L 180 240 Z" fill="#ffe0bd"/>
-        <ellipse cx="150" cy="170" rx="85" ry="105" fill="#ffe0bd"/>
+        <!-- 1. 뒷머리 (목 뒤를 넓게 커버) -->
+        <path class="svg-hair-part" d="M 40 140 C 20 220, 30 330, 70 350 L 250 350 C 290 330, 300 220, 280 140 Z" fill="#2b1810"/>
 
-        <!-- 귀 & 귀걸이 레이어 -->
-        <circle cx="60" cy="170" r="14" fill="#ffd1ab"/>
-        <circle cx="240" cy="170" r="14" fill="#ffd1ab"/>
-        
+        <!-- 2. 목 & 어깨 -->
+        <path d="M 130 230 Q 130 280 100 330 L 220 330 Q 190 280 190 230 Z" fill="url(#skin-grad)"/>
+
+        <!-- 3. 얼굴형 (매끄러운 V라인) -->
+        <path d="M 80 130 C 80 70, 240 70, 240 130 C 240 200, 210 255, 160 255 C 110 255, 80 200, 80 130 Z" fill="url(#skin-grad)"/>
+
+        <!-- 4. 귀 & 귀걸이 레이어 -->
+        <circle cx="78" cy="155" r="12" fill="#ffebd9"/>
+        <circle cx="242" cy="155" r="12" fill="#ffebd9"/>
         <g id="svg-acc-earrings" style="display: none;">
-          <circle cx="48" cy="180" r="8" stroke="#ffd700" stroke-width="3" fill="none"/>
-          <circle cx="252" cy="180" r="8" stroke="#ffd700" stroke-width="3" fill="none"/>
+          <circle cx="78" cy="172" r="6" fill="#ffffff" stroke="#ffd700" stroke-width="2"/>
+          <circle cx="242" cy="172" r="6" fill="#ffffff" stroke="#ffd700" stroke-width="2"/>
         </g>
 
-        <!-- 눈 -->
-        <ellipse cx="105" cy="155" rx="16" ry="10" fill="#ffffff" stroke="#333" stroke-width="2"/>
-        <ellipse cx="195" cy="155" rx="16" ry="10" fill="#ffffff" stroke="#333" stroke-width="2"/>
-        <circle cx="105" cy="155" r="6" fill="#4a2e2b"/>
-        <circle cx="195" cy="155" r="6" fill="#4a2e2b"/>
+        <!-- 5. 아이섀도우 레이어 -->
+        <path id="svg-eyeshadow-left" d="M 98 142 Q 120 120 142 142 Q 120 148 98 142 Z" fill="transparent" opacity="0.85"/>
+        <path id="svg-eyeshadow-right" d="M 178 142 Q 200 120 222 142 Q 200 148 178 142 Z" fill="transparent" opacity="0.85"/>
 
-        <!-- 눈썹 -->
-        <path d="M 85 138 Q 105 132 125 140" stroke="#5c3a21" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M 175 140 Q 195 132 215 138" stroke="#5c3a21" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- 6. 눈동자 & 컬러 렌즈 -->
+        <path d="M 100 145 Q 120 132 140 145 Q 120 156 100 145 Z" fill="#ffffff" stroke="#444" stroke-width="1.5"/>
+        <path d="M 180 145 Q 200 132 220 145 Q 200 156 180 145 Z" fill="#ffffff" stroke="#444" stroke-width="1.5"/>
+        <circle id="svg-lens-left" cx="120" cy="144" r="8" fill="#6b4226"/>
+        <circle id="svg-lens-right" cx="200" cy="144" r="8" fill="#6b4226"/>
+        <circle cx="120" cy="144" r="4" fill="#111"/>
+        <circle cx="200" cy="144" r="4" fill="#111"/>
+        <circle cx="122" cy="142" r="2.5" fill="#fff"/>
+        <circle cx="202" cy="142" r="2.5" fill="#fff"/>
+        <circle cx="117" cy="146" r="1.2" fill="#fff"/>
+        <circle cx="197" cy="146" r="1.2" fill="#fff"/>
 
-        <!-- 코 -->
-        <path d="M 150 165 Q 146 188 150 190 Q 154 188 150 165" fill="#e8b896"/>
+        <!-- 7. 속눈썹 & 아이라인 -->
+        <path d="M 95 143 Q 120 129 143 143 C 145 138, 142 135, 142 135" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 177 143 Q 200 129 225 143 C 227 138, 224 135, 224 135" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 98 128 Q 120 120 140 126" stroke="#4a3525" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 180 126 Q 200 120 222 128" stroke="#4a3525" stroke-width="2.5" fill="none" stroke-linecap="round"/>
 
-        <!-- 아이섀도우 -->
-        <path id="svg-eyeshadow-left" d="M 85 150 Q 105 132 125 150 Z" fill="transparent" opacity="0.8"/>
-        <path id="svg-eyeshadow-right" d="M 175 150 Q 195 132 215 150 Z" fill="transparent" opacity="0.8"/>
+        <!-- 8. 코 -->
+        <path d="M 160 152 Q 157 172 160 174 Q 163 172 160 152" fill="#e8c2a8"/>
 
-        <!-- 아이라인 -->
-        <path d="M 84 152 Q 105 144 126 152" stroke="#222" stroke-width="2.5" fill="none"/>
-        <path d="M 174 152 Q 195 144 216 152" stroke="#222" stroke-width="2.5" fill="none"/>
+        <!-- 9. 볼터치 -->
+        <ellipse id="svg-blush-left" cx="110" cy="172" rx="18" ry="12" fill="transparent" opacity="0.6" filter="url(#blur-filter)"/>
+        <ellipse id="svg-blush-right" cx="210" cy="172" rx="18" ry="12" fill="transparent" opacity="0.6" filter="url(#blur-filter)"/>
 
-        <!-- 볼터치 -->
-        <circle id="svg-blush-left" cx="90" cy="190" r="18" fill="transparent" opacity="0.5" filter="url(#blur-filter)"/>
-        <circle id="svg-blush-right" cx="210" cy="190" r="18" fill="transparent" opacity="0.5" filter="url(#blur-filter)"/>
+        <!-- 10. 입술 & 광택 -->
+        <path id="svg-lip-top" d="M 142 205 Q 151 199 160 203 Q 169 199 178 205 Q 160 208 142 205 Z" fill="#ff85a1"/>
+        <path id="svg-lip-bottom" d="M 142 205 Q 160 220 178 205 Q 160 207 142 205 Z" fill="#ff85a1"/>
+        <ellipse cx="160" cy="209" rx="4" ry="2" fill="#ffffff" opacity="0.6"/>
 
-        <!-- 립스틱 -->
-        <path id="svg-lip-top" d="M 125 220 Q 150 210 175 220 Q 150 223 125 220 Z" fill="#e8b896"/>
-        <path id="svg-lip-bottom" d="M 125 220 Q 150 236 175 220 Z" fill="#e8b896"/>
-
-        <!-- 헤어 스타일 -->
-        <g id="svg-hair-group">
-          <path id="svg-hair-1" d="M 60 140 C 50 60, 250 60, 240 140 C 220 70, 80 70, 60 140 Z" fill="#3a2518"/>
-          <path id="svg-hair-2" d="M 65 140 Q 55 240 45 280 Q 75 280 75 160 Z" fill="#3a2518"/>
-          <path id="svg-hair-3" d="M 235 140 Q 245 240 255 280 Q 225 280 225 160 Z" fill="#3a2518"/>
-          <path id="svg-hair-4" d="M 80 100 Q 150 125 220 100 Q 150 80 80 100 Z" fill="#3a2518"/>
+        <!-- 11. 머리 전체를 완벽히 덮는 앞머리/정수리/옆머리 구조 -->
+        <g id="svg-hair-front">
+          <path class="svg-hair-part" d="M 65 140 C 45 50, 275 50, 255 140 C 230 75, 90 75, 65 140 Z" fill="#2b1810"/>
+          <path class="svg-hair-part" d="M 65 130 Q 120 140 160 122 Q 200 140 255 130 Q 235 70 160 70 Q 85 70 65 130 Z" fill="#2b1810"/>
+          <path class="svg-hair-part" d="M 65 120 Q 55 180 72 225 Q 85 225 78 150 Z" fill="#2b1810"/>
+          <path class="svg-hair-part" d="M 255 120 Q 265 180 248 225 Q 235 225 242 150 Z" fill="#2b1810"/>
         </g>
 
-        <!-- 안경 & 선글라스 레이어 -->
+        <!-- 12. 악세사리 (안경 / 선글라스 / 하트 핀) -->
         <g id="svg-acc-glasses" style="display: none;">
-          <circle cx="105" cy="155" r="20" stroke="#333" stroke-width="3" fill="none"/>
-          <circle cx="195" cy="155" r="20" stroke="#333" stroke-width="3" fill="none"/>
-          <line x1="125" y1="155" x2="175" y2="155" stroke="#333" stroke-width="3"/>
+          <circle cx="120" cy="144" r="21" stroke="#333" stroke-width="3" fill="none"/>
+          <circle cx="200" cy="144" r="21" stroke="#333" stroke-width="3" fill="none"/>
+          <line x1="141" y1="144" x2="179" y2="144" stroke="#333" stroke-width="3"/>
         </g>
         <g id="svg-acc-sunglasses" style="display: none;">
-          <path d="M 80 142 L 130 142 L 125 170 C 120 180, 90 180, 85 170 Z" fill="#222"/>
-          <path d="M 170 142 L 220 142 L 215 170 C 210 180, 180 180, 175 170 Z" fill="#222"/>
-          <line x1="130" y1="145" x2="170" y2="145" stroke="#222" stroke-width="4"/>
+          <path d="M 92 132 L 148 132 L 142 162 C 135 172, 103 172, 96 162 Z" fill="#222"/>
+          <path d="M 172 132 L 228 132 L 222 162 C 215 172, 183 172, 176 162 Z" fill="#222"/>
+          <line x1="148" y1="135" x2="172" y2="135" stroke="#222" stroke-width="4"/>
+        </g>
+        <g id="svg-acc-pin" style="display: none;">
+          <path d="M 220 95 Q 225 90 230 95 Q 235 100 230 105 Q 225 110 220 105 Z" fill="#ff3366"/>
+          <path d="M 230 95 Q 235 90 240 95 Q 245 100 240 105 Q 235 110 230 105 Z" fill="#ff3366"/>
         </g>
       </svg>
     </div>
 
-    <!-- 오른쪽: 메이크업 툴 -->
+    <!-- 오른쪽: 확장된 메이크업 툴 -->
     <div class="tool-section">
       <div>
+        <!-- 립스틱 -->
         <div class="tool-category">
-          <div class="category-title">💋 립스틱</div>
+          <div class="category-title">💋 립스틱 (Lipstick)</div>
           <div class="color-palette" id="lip-palette"></div>
         </div>
 
+        <!-- 아이섀도우 -->
         <div class="tool-category">
-          <div class="category-title">👁️ 아이섀도우</div>
+          <div class="category-title">👁️ 아이섀도우 (Eyeshadow)</div>
           <div class="color-palette" id="shadow-palette"></div>
         </div>
 
+        <!-- 볼터치 -->
         <div class="tool-category">
-          <div class="category-title">🌸 볼터치</div>
+          <div class="category-title">🌸 볼터치 (Blush)</div>
           <div class="color-palette" id="blush-palette"></div>
         </div>
 
+        <!-- 컬러 렌즈 (NEW) -->
         <div class="tool-category">
-          <div class="category-title">💇‍♀️ 헤어 컬러</div>
+          <div class="category-title">✨ 컬러 렌즈 (Lens)</div>
+          <div class="color-palette" id="lens-palette"></div>
+        </div>
+
+        <!-- 헤어 컬러 -->
+        <div class="tool-category">
+          <div class="category-title">💇‍♀️ 헤어 컬러 (Hair Color)</div>
           <div class="color-palette" id="hair-palette"></div>
         </div>
 
+        <!-- 악세사리 -->
         <div class="tool-category">
-          <div class="category-title">👓 악세사리</div>
+          <div class="category-title">👓 악세사리 (Accessories)</div>
           <div class="color-palette" id="acc-palette"></div>
         </div>
       </div>
@@ -445,7 +490,7 @@
 
   </div>
 
-  <!-- 평가 결과 모달 -->
+  <!-- 결과 모달 -->
   <div class="modal-overlay" id="result-modal">
     <div class="modal-card">
       <h2>손님의 평가 결과</h2>
@@ -480,8 +525,8 @@
 
       <div class="shop-item">
         <div class="shop-item-info">
-          <div class="shop-item-title">🎨 프리미엄 컬러 해금</div>
-          <div>네온 블루 헤어 및 골드 글리터 메이크업을 해금합니다.</div>
+          <div class="shop-item-title">🎨 프리미엄 화장품 해금</div>
+          <div>바이올렛 섀도우 & 애쉬 핑크 헤어 등을 해금합니다.</div>
         </div>
         <button class="buy-btn" id="btn-buy-premium" onclick="buyUpgrade('premium', 200)">$200</button>
       </div>
@@ -491,71 +536,113 @@
   </div>
 
   <script>
+    // 다양한 화장품 색상 및 팔레트 옵션
     const colorOptions = {
       lip: [
-        { name: '러블리 핑크', hex: '#ff6699' },
+        { name: '러블리 핑크', hex: '#ff4d8d' },
         { name: '섹시 레드', hex: '#e60033' },
-        { name: '상큼 코랄', hex: '#ff7f50' },
-        { name: '차분 누드', hex: '#d2b48c' },
-        { name: '다크 버건디', hex: '#800020' }
+        { name: '코랄 오렌지', hex: '#ff6b4a' },
+        { name: '차분 메이플', hex: '#c87d55' },
+        { name: '플럼 버건디', hex: '#800033' },
+        { name: '글램 피치', hex: '#ff85a1' }
       ],
       shadow: [
-        { name: '피치 핑크', hex: '#ffb6c1' },
-        { name: '딥 스모키', hex: '#4a4a4a' },
-        { name: '화사한 골드', hex: '#ffd700' },
-        { name: '내추럴 브라운', hex: '#8b4513' },
-        { name: '네온 시크 (프리미엄)', hex: '#00f5d4', isPremium: true }
+        { name: '로즈 골드', hex: '#f7aef8' },
+        { name: '스모키 블랙', hex: '#333333' },
+        { name: '초콜릿 브라운', hex: '#a67c52' },
+        { name: '파스텔 피치', hex: '#ffcad4' },
+        { name: '샴페인 펄', hex: '#ffe5ec' },
+        { name: '신비 바이올렛 (프리미엄)', hex: '#b5179e', isPremium: true }
       ],
       blush: [
-        { name: '베이비 핑크', hex: '#ffb6c1' },
-        { name: '강렬한 레드', hex: '#ff3333' },
-        { name: '피치 코랄', hex: '#ff7f50' },
+        { name: '베이비 핑크', hex: '#ffb3c6' },
+        { name: '피치 코랄', hex: '#ff9e7d' },
+        { name: '로즈 레드', hex: '#ff5252' },
+        { name: '라벤더 핑크', hex: '#d8bbff' },
         { name: '안함', hex: 'transparent' }
       ],
+      lens: [
+        { name: '내추럴 브라운', hex: '#6b4226' },
+        { name: '딥 오션 블루', hex: '#2b5c8f' },
+        { name: '에메랄드 그린', hex: '#2d8a64' },
+        { name: '미스티 그레이', hex: '#78858f' },
+        { name: '파스텔 바이올렛', hex: '#8a5aab' }
+      ],
       hair: [
-        { name: '다크 브라운', hex: '#3a2518' },
-        { name: '시크 블랙', hex: '#1a1a1a' },
-        { name: '골드 블론드', hex: '#f4c430' },
-        { name: '파스텔 핑크', hex: '#ff80ab' },
-        { name: '네온 블루 (프리미엄)', hex: '#00e5ff', isPremium: true }
+        { name: '다크 브라운', hex: '#2b1810' },
+        { name: '내추럴 블랙', hex: '#111111' },
+        { name: '애쉬 골드', hex: '#e5c158' },
+        { name: '애쉬 핑크 (프리미엄)', hex: '#e8a2b8', isPremium: true },
+        { name: '딥 블루 (프리미엄)', hex: '#1e3d59', isPremium: true }
       ],
       acc: [
         { name: '없음', id: 'none' },
         { name: '동글 안경', id: 'glasses' },
         { name: '선글라스', id: 'sunglasses' },
-        { name: '골드 귀걸이', id: 'earrings' }
+        { name: '진주 귀걸이', id: 'earrings' },
+        { name: '하트 핀', id: 'pin' }
       ]
     };
 
+    // 손님마다 완전히 다른 10가지 개성 넘치는 요구사항 데이터
     const concepts = [
       {
-        req: "오늘 소개팅이 있어요! <strong>핑크빛 립/섀도우</strong>에 <strong>다크 브라운 헤어</strong>로 사랑스럽게 해주세요!",
-        target: { lip: '#ff6699', shadow: '#ffb6c1', blush: '#ffb6c1', hair: '#3a2518', acc: 'none' }
+        name: "대학생 지은님",
+        req: "새내기 대학 OT 가요! <strong>러블리 핑크 립</strong>, <strong>로즈골드 섀도우</strong>, <strong>다크 브라운 헤어</strong>에 <strong>하트 핀</strong> 해주세요!",
+        target: { lip: '#ff4d8d', shadow: '#f7aef8', blush: '#ffb3c6', lens: '#6b4226', hair: '#2b1810', acc: 'pin' }
       },
       {
-        req: "힙합 공연을 하러 가요! <strong>블랙 헤어</strong>, <strong>선글라스</strong>, <strong>섹시 레드 립</strong>으로 화려하게 해주세요!",
-        target: { lip: '#e60033', shadow: '#4a4a4a', blush: '#ff3333', hair: '#1a1a1a', acc: 'sunglasses' }
+        name: "아이돌 민아님",
+        req: "무대 신곡 무대의상이에요! <strong>섹시 레드 립</strong>, <strong>딥 오션 블루 렌즈</strong>, <strong>애쉬 골드 헤어</strong>, <strong>선글라스</strong>로 화려하게 부탁해요!",
+        target: { lip: '#e60033', shadow: '#333333', blush: '#ff5252', lens: '#2b5c8f', hair: '#e5c158', acc: 'sunglasses' }
       },
       {
-        req: "아이돌 스타일 무대 착장이에요. <strong>골드 블론드 헤어</strong>, <strong>골드 섀도우</strong>, <strong>골드 귀걸이</strong>를 맞춰주세요!",
-        target: { lip: '#ff7f50', shadow: '#ffd700', blush: '#ff7f50', hair: '#f4c430', acc: 'earrings' }
+        name: "승무원 서연님",
+        req: "비행 면접이 있어요. <strong>차분 메이플 립</strong>, <strong>초콜릿 브라운 섀도우</strong>, <strong>내추럴 블랙 헤어</strong>에 <strong>진주 귀걸이</strong>로 단정하게 해주세요.",
+        target: { lip: '#c87d55', shadow: '#a67c52', blush: '#ff9e7d', lens: '#6b4226', hair: '#111111', acc: 'earrings' }
       },
       {
-        req: "도서관 공부 룩이에요! <strong>동글 안경</strong>에 <strong>차분한 누드/브라운 톤</strong>으로 지적이게 만들어주세요.",
-        target: { lip: '#d2b48c', shadow: '#8b4513', blush: 'transparent', hair: '#3a2518', acc: 'glasses' }
+        name: "힙합 뮤지션 릴리님",
+        req: "뮤직비디오 촬영이 있어요! <strong>플럼 버건디 립</strong>, <strong>미스티 그레이 렌즈</strong>, <strong>스모키 블랙 섀도우</strong>로 힙하게 해주세요!",
+        target: { lip: '#800033', shadow: '#333333', blush: 'transparent', lens: '#78858f', hair: '#111111', acc: 'none' }
       },
       {
-        req: "파스텔 트렌드 룩이에요! <strong>파스텔 핑크 헤어</strong>와 <strong>피치 코랄 립/볼터치</strong>로 해주세요!",
-        target: { lip: '#ff7f50', shadow: '#ffb6c1', blush: '#ff7f50', hair: '#ff80ab', acc: 'none' }
+        name: "패션 모델 유진님",
+        req: "봄 화보 촬영입니다. <strong>글램 피치 립</strong>, <strong>파스텔 피치 섀도우</strong>, <strong>애쉬 핑크 헤어</strong>로 봄 분위기 물씬 나게 해주세요!",
+        target: { lip: '#ff85a1', shadow: '#ffcad4', blush: '#ffb3c6', lens: '#8a5aab', hair: '#e8a2b8', acc: 'none' }
+      },
+      {
+        name: "카페 사장 수빈님",
+        req: "오늘 데이트가 있어요! <strong>코랄 오렌지 립</strong>, <strong>에메랄드 그린 렌즈</strong>, <strong>동글 안경</strong>으로 지적이고 귀엽게 부탁해요!",
+        target: { lip: '#ff6b4a', shadow: '#ffe5ec', blush: '#ff9e7d', lens: '#2d8a64', hair: '#2b1810', acc: 'glasses' }
+      },
+      {
+        name: "인플루언서 혜리님",
+        req: "야외 페스티벌 가요! <strong>파스텔 바이올렛 렌즈</strong>, <strong>라벤더 핑크 볼터치</strong>, <strong>하트 핀</strong>으로 인간 몽환 컨셉 완성해 주세요!",
+        target: { lip: '#ff4d8d', shadow: '#f7aef8', blush: '#d8bbff', lens: '#8a5aab', hair: '#e8a2b8', acc: 'pin' }
+      },
+      {
+        name: "변호사 도희님",
+        req: "법정 재판이 있는 날이에요. 과하지 않게 <strong>차분 메이플 립</strong>, <strong>미스티 그레이 렌즈</strong>, <strong>진주 귀걸이</strong>만 깔끔히 해주세요.",
+        target: { lip: '#c87d55', shadow: '#a67c52', blush: 'transparent', lens: '#78858f', hair: '#111111', acc: 'earrings' }
+      },
+      {
+        name: "댄서 제시카님",
+        req: "스트릿 댄스 배틀 날입니다! <strong>딥 블루 헤어</strong>, <strong>섹시 레드 립</strong>, <strong>선글라스</strong> 조합으로 걸크러시 느낌 제대로 살려주세요!",
+        target: { lip: '#e60033', shadow: '#333333', blush: '#ff5252', lens: '#2b5c8f', hair: '#1e3d59', acc: 'sunglasses' }
+      },
+      {
+        name: "고등학생 아영님",
+        req: "졸업사진 찍는 날이에요! <strong>러블리 핑크 립</strong>, <strong>베이비 핑크 볼터치</strong>, <strong>동글 안경</strong>으로 순수하고 풋풋하게 해줘요!",
+        target: { lip: '#ff4d8d', shadow: '#ffe5ec', blush: '#ffb3c6', lens: '#6b4226', hair: '#2b1810', acc: 'glasses' }
       }
     ];
 
     let currentCustomerCount = 1;
     let totalMoney = 0;
     let currentConcept = null;
-    let selectedMakeup = { lip: null, shadow: null, blush: null, hair: '#3a2518', acc: 'none' };
+    let selectedMakeup = { lip: null, shadow: null, blush: null, lens: '#6b4226', hair: '#2b1810', acc: 'none' };
 
-    /* ★ 제한시간 1분(60초)으로 설정 ★ */
     let timerMax = 60;
     let timeLeft = 60;
     let timerInterval = null;
@@ -567,7 +654,7 @@
     };
 
     function renderPalettes() {
-      ['lip', 'shadow', 'blush', 'hair'].forEach(type => {
+      ['lip', 'shadow', 'blush', 'lens', 'hair'].forEach(type => {
         const container = document.getElementById(`${type}-palette`);
         container.innerHTML = '';
         colorOptions[type].forEach(item => {
@@ -579,7 +666,7 @@
 
           btn.onclick = () => {
             if (item.isPremium && !shopUpgrades.premium) {
-              alert("🛒 상점에서 '프리미엄 컬러'를 구매해야 사용할 수 있습니다!");
+              alert("🛒 상점에서 '프리미엄 화장품'을 해금해야 사용할 수 있습니다!");
               return;
             }
             selectColor(type, item.hex, btn);
@@ -614,9 +701,12 @@
       } else if (type === 'blush') {
         document.getElementById('svg-blush-left').setAttribute('fill', colorHex);
         document.getElementById('svg-blush-right').setAttribute('fill', colorHex);
+      } else if (type === 'lens') {
+        document.getElementById('svg-lens-left').setAttribute('fill', colorHex);
+        document.getElementById('svg-lens-right').setAttribute('fill', colorHex);
       } else if (type === 'hair') {
-        ['1','2','3','4'].forEach(id => {
-          document.getElementById(`svg-hair-${id}`).setAttribute('fill', colorHex);
+        document.querySelectorAll('.svg-hair-part').forEach(part => {
+          part.setAttribute('fill', colorHex);
         });
       }
     }
@@ -630,27 +720,33 @@
       document.getElementById('svg-acc-glasses').style.display = accId === 'glasses' ? 'block' : 'none';
       document.getElementById('svg-acc-sunglasses').style.display = accId === 'sunglasses' ? 'block' : 'none';
       document.getElementById('svg-acc-earrings').style.display = accId === 'earrings' ? 'block' : 'none';
+      document.getElementById('svg-acc-pin').style.display = accId === 'pin' ? 'block' : 'none';
     }
 
     function loadCustomer() {
       const randomIndex = Math.floor(Math.random() * concepts.length);
       currentConcept = concepts[randomIndex];
 
+      document.getElementById('customer-name').innerText = `손님 #${currentCustomerCount}: ${currentConcept.name}`;
       document.getElementById('request-text').innerHTML = currentConcept.req;
 
-      selectedMakeup = { lip: null, shadow: null, blush: null, hair: '#3a2518', acc: 'none' };
+      selectedMakeup = { lip: null, shadow: null, blush: null, lens: '#6b4226', hair: '#2b1810', acc: 'none' };
       document.querySelectorAll('.color-btn, .acc-btn').forEach(btn => btn.classList.remove('selected'));
 
-      document.getElementById('svg-lip-top').setAttribute('fill', '#e8b896');
-      document.getElementById('svg-lip-bottom').setAttribute('fill', '#e8b896');
+      document.getElementById('svg-lip-top').setAttribute('fill', '#ff85a1');
+      document.getElementById('svg-lip-bottom').setAttribute('fill', '#ff85a1');
       document.getElementById('svg-eyeshadow-left').setAttribute('fill', 'transparent');
       document.getElementById('svg-eyeshadow-right').setAttribute('fill', 'transparent');
       document.getElementById('svg-blush-left').setAttribute('fill', 'transparent');
       document.getElementById('svg-blush-right').setAttribute('fill', 'transparent');
-      ['1','2','3','4'].forEach(id => document.getElementById(`svg-hair-${id}`).setAttribute('fill', '#3a2518'));
+      document.getElementById('svg-lens-left').setAttribute('fill', '#6b4226');
+      document.getElementById('svg-lens-right').setAttribute('fill', '#6b4226');
+      document.querySelectorAll('.svg-hair-part').forEach(part => part.setAttribute('fill', '#2b1810'));
+
       document.getElementById('svg-acc-glasses').style.display = 'none';
       document.getElementById('svg-acc-sunglasses').style.display = 'none';
       document.getElementById('svg-acc-earrings').style.display = 'none';
+      document.getElementById('svg-acc-pin').style.display = 'none';
 
       startTimer();
     }
@@ -683,32 +779,34 @@
       clearInterval(timerInterval);
 
       if (!isTimeOut && (!selectedMakeup.lip || !selectedMakeup.shadow || !selectedMakeup.blush)) {
-        alert("화장품(립, 섀도우, 볼터치)을 끝까지 완료해 주세요!");
+        alert("립스틱, 아이섀도우, 볼터치를 모두 선택해 주세요!");
         startTimer();
         return;
       }
 
       let score = 0;
-      if (selectedMakeup.lip === currentConcept.target.lip) score += 20;
-      if (selectedMakeup.shadow === currentConcept.target.shadow) score += 20;
-      if (selectedMakeup.blush === currentConcept.target.blush) score += 20;
-      if (selectedMakeup.hair === currentConcept.target.hair) score += 20;
-      if (selectedMakeup.acc === currentConcept.target.acc) score += 20;
+      const target = currentConcept.target;
+      if (selectedMakeup.lip === target.lip) score += 17;
+      if (selectedMakeup.shadow === target.shadow) score += 17;
+      if (selectedMakeup.blush === target.blush) score += 16;
+      if (selectedMakeup.lens === target.lens) score += 16;
+      if (selectedMakeup.hair === target.hair) score += 17;
+      if (selectedMakeup.acc === target.acc) score += 17;
 
       if (isTimeOut) score = Math.max(0, score - 30);
 
       let multiplier = shopUpgrades.vip ? 1.5 : 1.0;
-      let reward = Math.round((score * 1.5) * multiplier);
+      let reward = Math.round((score * 1.8) * multiplier);
       let comment = "";
 
       if (isTimeOut) {
-        comment = "⏰ 너무 오래 걸렸어요! 화장이 맘에 다 안 들어요...";
-      } else if (score >= 80) {
-        comment = "😍 완전 만족스러워요! 당신은 정녕 메이크업 마스터!";
+        comment = "⏰ 시간이 너무 오래 걸려서 지쳤어요...";
+      } else if (score >= 85) {
+        comment = "😍 와!! 제가 머릿속으로 그리던 바로 그 완벽한 모습이에요!! 최고예요!";
       } else if (score >= 50) {
-        comment = "😊 괜찮네요! 약간 아쉽지만 마음에 듭니다.";
+        comment = "😊 오, 예쁘네요! 마음에 듭니다. 수고하셨어요!";
       } else {
-        comment = "😭 제가 요청한 컨셉과 너무 달라요...";
+        comment = "😭 제가 부탁드린 스타일이랑은 거리가 좀 있네요...";
       }
 
       totalMoney += reward;
@@ -748,7 +846,7 @@
 
       if (type === 'timer') {
         shopUpgrades.timer = true;
-        timerMax = 75; // 상점 업그레이드 시 75초로 증가
+        timerMax = 75;
         document.getElementById('btn-buy-timer').innerText = "구매완료";
         document.getElementById('btn-buy-timer').disabled = true;
       } else if (type === 'vip') {
@@ -762,7 +860,7 @@
         renderPalettes();
       }
 
-      alert("업그레이드 완료!");
+      alert("업그레이드 성공!");
     }
   </script>
 </body>
